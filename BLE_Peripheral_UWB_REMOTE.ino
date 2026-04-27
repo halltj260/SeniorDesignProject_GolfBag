@@ -30,12 +30,18 @@ float uwbDistances[NUM_BASES] = { -1, -1, -1, -1 };
 
 /* ================= BUTTON DEFINITIONS ================= */
 
-#define AUTO      21
-#define MANUAL    22
-#define FORWARD   32
-#define BACKWARD  33
-#define LEFT      26
-#define RIGHT     27
+#define AUTO_LED
+#define MAN_LED
+#define PWR_LED
+#define BLE_LED
+
+
+#define AUTO      27
+#define MANUAL    14
+#define FORWARD   26
+#define BACKWARD  32
+#define LEFT      33
+#define RIGHT     25
 
 enum Mode {
   MODE_MANUAL = 0,
@@ -60,7 +66,7 @@ struct ControlPacket {
 class MyServerCallbacks: public BLEServerCallbacks {
   void onConnect(BLEServer* pServer) {
     deviceConnected = true;
-    Serial.print("Client connected. MTU: ");
+    // Serial.print("Client connected. MTU: ");
     Serial.println(pServer->getPeerMTU(pServer->getConnId()));
   }
 
